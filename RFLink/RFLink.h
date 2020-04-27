@@ -9,7 +9,7 @@
 #define RFLink_h
 
 //
-#define BUILDNR 0x03                    // 0x07       // shown in version
+#define BUILDNR 0x02                    // 0x07       // shown in version
 #define REVNR 0x00                      // 0X42       // shown in version and startup string
 #define BAUD 57600                      // 57600      // Baudrate for serial communication.
 #define MIN_RAW_PULSES 50               // 50         // Minimal number of bits that need to have been received before we spend CPU time on decoding the signal.
