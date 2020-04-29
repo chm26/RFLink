@@ -342,7 +342,7 @@ void display_RGBW(unsigned int input)
 
 char *ptr;
 const char c_delim[2] = ";";
-char c_label[10];
+char c_label[12];
 
 boolean retrieve_Init10()
 {

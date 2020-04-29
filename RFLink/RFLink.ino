@@ -35,6 +35,13 @@ void sendMsg(); // See at bottom
 
 #if (defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__))
 void (*Reboot)(void) = 0; // reset function on adress 0.
+
+void CallReboot(void)
+{
+  sendMsg();
+  delay(1);
+  Reboot();
+}
 #endif
 
 #if (defined(ESP8266) || defined(ESP32))
@@ -63,6 +70,9 @@ void setup()
   disableTX();
   enableRX();
 
+  PluginInit();
+  PluginTXInit();
+
 #if (defined(ESP32) || defined(ESP8266))
 #ifdef MQTT_ENABLED
   setup_WIFI();
@@ -89,8 +99,6 @@ void setup()
 #endif
   pbuffer[0] = 0;
 
-  PluginInit();
-  PluginTXInit();
   delay(100);
 }
 
