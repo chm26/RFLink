@@ -229,7 +229,7 @@ boolean Plugin_042(byte function, char *string)
          //==================================================================================
          display_Header();
          display_Name(PSTR("UPM/Esic"));
-         char c_ID[4];
+         char c_ID[5];
          sprintf(c_ID, "%02X%02X", rc, devicecode);
          display_IDc(c_ID);
          display_WINSP(winds);
@@ -246,7 +246,7 @@ boolean Plugin_042(byte function, char *string)
          //==================================================================================
          display_Header();
          display_Name(PSTR("UPM/Esic"));
-         char c_ID[4];
+         char c_ID[5];
          sprintf(c_ID, "%02X%02X", rc, devicecode);
          display_IDc(c_ID);
          display_RAIN(rain);
@@ -269,7 +269,7 @@ boolean Plugin_042(byte function, char *string)
          //==================================================================================
          display_Header();
          display_Name(PSTR("UPM/Esic"));
-         char c_ID[4];
+         char c_ID[5];
          sprintf(c_ID, "%02X%02X", rc, devicecode);
          display_IDc(c_ID);
          display_TEMP(temperature);
@@ -292,7 +292,7 @@ boolean Plugin_042(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("UPM/Esic F2"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", rc, devicecode);
       display_IDc(c_ID);
       display_TEMP(temperature);

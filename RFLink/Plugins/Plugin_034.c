@@ -210,7 +210,7 @@ boolean Plugin_034(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("Cresta"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", data[1], channel);
       display_IDc(c_ID);
       display_WINDIR(winddirection);
@@ -241,7 +241,7 @@ boolean Plugin_034(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("Cresta"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", data[1], channel);
       display_IDc(c_ID);
       display_TEMP(sensor_data);
@@ -262,7 +262,7 @@ boolean Plugin_034(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("Cresta"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", data[1], channel);
       display_IDc(c_ID);
       display_RAIN(sensor_data);
@@ -285,7 +285,7 @@ boolean Plugin_034(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("Cresta"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", data[1], channel);
       display_IDc(c_ID);
       display_TEMP(sensor_data);
@@ -301,7 +301,7 @@ boolean Plugin_034(byte function, char *string)
       //==================================================================================
       display_Header();
       display_Name(PSTR("Cresta;DEBUG"));
-      char c_ID[4];
+      char c_ID[5];
       sprintf(c_ID, "%02X%02X", data[1], channel);
       display_IDc(c_ID);
       display_Footer();
