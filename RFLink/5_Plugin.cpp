@@ -1938,6 +1938,7 @@ byte PluginTXInitCall(byte Function, char *str)
  \*********************************************************************************************/
 byte PluginRXCall(byte Function, char *str)
 {
+  unsigned long tmp = SignalCRC;
   for (byte x = 0; x < PLUGIN_MAX; x++)
   {
     if ((Plugin_id[x] != 0) && (Plugin_State[x] >= P_Enabled))
@@ -1948,6 +1949,7 @@ byte PluginRXCall(byte Function, char *str)
         SignalHashPrevious = SignalHash; // store previous plugin number after success
         return true;
       }
+      SignalCRC = tmp;  // restore SignalCRC, because some plugins change it even if they return false
     }
   }
   return false;
