@@ -51,6 +51,7 @@
 #define PLUGIN_045 // Auriol
 #define PLUGIN_046 // Auriol v2 / Xiron
 #define PLUGIN_047 // Auriol v4
+#define PLUGIN_050 // Digoo R8S
 // -------------------
 // Motion Sensors, include when needed
 // -------------------
