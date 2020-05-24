@@ -442,8 +442,35 @@ boolean Plugin_001(byte function, char *string)
    // **************************************************************************
    // Full buffer size checks, >>>> SCANNING checks <<<<<  sorted by packet size
    // **************************************************************************
+
    // ==========================================================================
-   // Beginning of Signal translation for Auriol & Xiron
+   // Beginning of Signal translation for F007_TH weather sensors (plugin 036)
+   // Data is manchester encoded and sent 3 times in a row, with no transition
+   // The long final pulse (6990 us) is truncated by the buffer size. 
+   // ==========================================================================
+
+   #define PULSE600 600 / RAWSIGNAL_SAMPLE_RATE
+   #define PULSE700 700 / RAWSIGNAL_SAMPLE_RATE
+
+   if (RawSignal.Number == RAW_BUFFER_SIZE - 1)
+   {  
+      for (int i=1 ; i<25 ; i++)
+      {
+         if ( (i <= 19) && (RawSignal.Pulses[i]) > PULSE600 )
+            break;
+         if ( (i >= 20) && (RawSignal.Pulses[i]) < PULSE700 )
+            break;
+         RawSignal.Number = 111;       // New packet length, (too) long enough to handle at least one third of the pulses
+         return false;
+      }
+   }
+
+   // ==========================================================================
+   // Beginning of Signal translation for Atlantic/Visonic alarm detectors
+   // 74 pulses sent 1, 4 or 5 times. Pulse 74 = 3968 (064)
+   // ==========================================================================
+   // ==========================================================================
+   // Also Beginning of Signal translation for Auriol & Xiro (046)
    // ==========================================================================
    if (RawSignal.Number == RAW_BUFFER_SIZE - 1)
    {
@@ -455,9 +482,10 @@ boolean Plugin_001(byte function, char *string)
             {
                RawSignal.Pulses[1 + i] = RawSignal.Pulses[offset + i + 1]; // reorder pulse array
             }
-            RawSignal.Number = 74;    // New packet length
-            RawSignal.Pulses[0] = 46; // signal the plugin number that should process this packet
-            return false;             // Conversion done, stop plugin 1 and continue with regular plugins
+            RawSignal.Number = 74; // New packet length
+            // RawSignal.Pulses[0] = 46; // signal the plugin number that should process this packet, unused for Auriol/Xiron
+            // RawSignal.Pulses[0] = 64; // signal the plugin number that should process this packet, unused for Atlantic/Visonic
+            return false;  // Conversion done, stop plugin 1 and continue with regular plugins
          }
       }
    }

@@ -43,6 +43,7 @@
 #define PLUGIN_033 // Conrad Pool Thermometer
 #define PLUGIN_034 // Cresta
 #define PLUGIN_035 // Imagintronix
+#define PLUGIN_036 // F007_TH
 #define PLUGIN_040 // Mebus
 #define PLUGIN_041 // LaCrosse v3 ws7000
 #define PLUGIN_042 // UPM/Esic
@@ -52,6 +53,8 @@
 #define PLUGIN_046 // Auriol v2 / Xiron
 #define PLUGIN_047 // Auriol v4
 #define PLUGIN_050 // Digoo R8S
+#define PLUGIN_051 // Digoo EX003
+//#define PLUGIN_052 // ATECH WS301TE
 // -------------------
 // Motion Sensors, include when needed
 // -------------------
@@ -59,6 +62,7 @@
 #define PLUGIN_061 // Chinese PIR motion door and window sensors
 #define PLUGIN_062 // Chuango Alarm Devices
 #define PLUGIN_063 // Oregon PIR/ALARM/LIGHT
+#define PLUGIN_064 // Atlantic (and Visonic)
 // -------------------
 // Doorbells
 // -------------------
